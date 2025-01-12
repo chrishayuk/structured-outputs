@@ -1,4 +1,3 @@
-# src/llm_clients/openai_client.py
 import json
 from typing import List
 from pydantic import ValidationError
@@ -11,7 +10,11 @@ from system_message import system_message
 # load environment variables if needed
 load_dotenv()
 
-def verify(user_message, response_format):
+def verify(user_message, response_format, model: str):
+    """
+    Verifies a user message against the SudokuVerificationPlan using OpenAI.
+    Takes in a 'model' argument which defaults in sudoku.py to 'gpt-4o-mini' unless overridden.
+    """
     # get the client
     client = OpenAI()
 
@@ -19,9 +22,8 @@ def verify(user_message, response_format):
     messages = [system_message, user_message]
 
     try:
-        # perform the completion
         response = client.beta.chat.completions.parse(
-            model="gpt-4o",
+            model=model,  # use the argument passed from sudoku.py
             messages=messages,
             response_format=response_format
         )
@@ -35,4 +37,3 @@ def verify(user_message, response_format):
         print("The model output wasn't valid JSON. Try refining the prompt or adding a check for invalid JSON.")
     except Exception as ex:
         print("An error occurred:", ex)
-

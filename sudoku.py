@@ -1,4 +1,5 @@
 # sudoku.py
+import argparse
 from models import SudokuVerificationPlan
 from llm_clients.openai_client import verify
 from verification_output import print_verification_plan
@@ -43,9 +44,51 @@ Is this a valid sudoku grid:
 """
 }
 
+def parse_args():
+    # setup argument parser
+    parser = argparse.ArgumentParser(description="Check Sudoku puzzle validity using LLMs")
+    
+    # add arguments
+    parser.add_argument(
+        "--model-provider",
+        type=str,
+        default="ollama",
+        choices=["ollama", "openai"],
+        help="Which LLM provider to use (default: ollama)."
+    )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default=None,
+        help="Which model to use for the chosen provider. Defaults to 'phi4' (ollama) or 'gpt-4o-mini' (openai)."
+    )
 
-# get the response
-plan = verify(user_message, SudokuVerificationPlan)
+    # parse arguments
+    return parser.parse_args()
 
-# Pass the plan to the separate output function
-print_verification_plan(plan)
+def main():
+    # parse areguments
+    args = parse_args()
+
+    # Determine default model if not provided
+    if not args.model:
+        if args.model_provider == "ollama":
+            args.model = "phi4"
+        else:
+            args.model = "gpt-4o-mini"
+
+    # Dynamically import the correct verification client based on provider
+    if args.model_provider == "ollama":
+        from llm_clients.ollama_client import verify
+    else:
+        from llm_clients.openai_client import verify
+
+    # Call verify with the chosen model
+    plan = verify(user_message, SudokuVerificationPlan, args.model)
+
+    # Print out the plan
+    print_verification_plan(plan)
+
+if __name__ == "__main__":
+    # run
+    main()
