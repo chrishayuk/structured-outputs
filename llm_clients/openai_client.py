@@ -20,7 +20,7 @@ def verify(system_message, user_message, response_format, model_name: str):
 
     try:
         response = client.beta.chat.completions.parse(
-            model=model_name,  # use the argument passed from sudoku.py
+            model=model_name,
             messages=messages,
             response_format=response_format
         )

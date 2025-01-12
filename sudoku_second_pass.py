@@ -1,7 +1,7 @@
 # sudoku_second_pass.py
 from models import SudokuVerificationPlan
 from verification_output import print_verification_plan
-from llm_clients.ollama_client import verify
+from llm_clients.openai_client import verify
 
 system_message = {
     "role": "system",
@@ -51,7 +51,7 @@ def main():
     """
     }
     # Hardcoded model name
-    model_name = "phi4"
+    model_name = "gpt-4o"
 
     # --- First Pass ---
     plan_first_pass = verify(
