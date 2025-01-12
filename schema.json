@@ -1,0 +1,78 @@
+{
+    "$defs": {
+      "SudokuGrid": {
+        "type": "object",
+        "title": "SudokuGrid",
+        "properties": {
+          "grid": {
+            "type": "array",
+            "title": "Grid",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "required": ["grid"]
+      },
+      "SudokuVerificationDetails": {
+        "type": "object",
+        "title": "SudokuVerificationDetails",
+        "properties": {
+          "lines_verification": {
+            "type": "array",
+            "title": "Lines Verification",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "columns_verification": {
+            "type": "array",
+            "title": "Columns Verification",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "subgrids_verification": {
+            "type": "array",
+            "title": "Subgrids Verification",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": ["lines_verification", "columns_verification", "subgrids_verification"]
+      }
+    },
+    "type": "object",
+    "title": "SudokuVerificationPlan",
+    "properties": {
+      "sudoku_puzzle": {
+        "$ref": "#/$defs/SudokuGrid"
+      },
+      "verification_details": {
+        "$ref": "#/$defs/SudokuVerificationDetails"
+      },
+      "overall_result": {
+        "type": "string",
+        "title": "Overall Result"
+      },
+      "final_note": {
+        "type": "string",
+        "title": "Final Note"
+      }
+    },
+    "required": ["sudoku_puzzle", "verification_details", "overall_result", "final_note"]
+  }
+  

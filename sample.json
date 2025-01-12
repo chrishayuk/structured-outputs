@@ -1,0 +1,53 @@
+{
+    "sudoku_puzzle": {
+      "grid": [
+        [5, 3, 0, 0, 7, 0, 0, 0, 0],
+        [6, 0, 0, 1, 9, 5, 0, 0, 0],
+        [0, 9, 8, 0, 0, 0, 0, 6, 0],
+        [8, 0, 0, 0, 6, 0, 0, 0, 3],
+        [4, 0, 0, 8, 0, 3, 0, 0, 1],
+        [7, 0, 0, 0, 2, 0, 0, 0, 6],
+        [0, 6, 0, 0, 0, 0, 2, 8, 0],
+        [0, 0, 0, 4, 1, 9, 0, 0, 5],
+        [0, 0, 0, 0, 8, 0, 0, 7, 9]
+      ]
+    },
+    "verification_details": {
+      "lines_verification": [
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "invalid", "Duplicate '1' found in columns 3 and 5", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "invalid", "Missing '7'", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["invalid", "Out of range '10'", "valid", "valid", "valid", "valid", "valid", "valid", "valid"]
+      ],
+      "columns_verification": [
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "invalid", "Duplicate '4' found in rows 2 and 6", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["invalid", "Missing '2'", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"]
+      ],
+      "subgrids_verification": [
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "invalid", "Incorrect subgrid sum", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "invalid", "Duplicate '7'", "valid", "valid", "valid", "valid", "valid", "valid"],
+        ["valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid", "valid"]
+      ]
+    },
+    "overall_result": "Invalid puzzle. Some duplicates found.",
+    "final_note": "Remove duplicates from row 2 and subgrid 8."
+  }
+  
