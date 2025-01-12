@@ -7,7 +7,7 @@ from openai import OpenAI
 # load environment variables if needed
 load_dotenv()
 
-def verify(system_message, user_message, response_format, model: str):
+def verify(system_message, user_message, response_format, model_name: str):
     """
     Verifies a user message against the SudokuVerificationPlan using OpenAI.
     Takes in a 'model' argument which defaults in sudoku.py to 'gpt-4o-mini' unless overridden.
@@ -20,7 +20,7 @@ def verify(system_message, user_message, response_format, model: str):
 
     try:
         response = client.beta.chat.completions.parse(
-            model=model,  # use the argument passed from sudoku.py
+            model=model_name,  # use the argument passed from sudoku.py
             messages=messages,
             response_format=response_format
         )

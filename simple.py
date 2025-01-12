@@ -1,4 +1,4 @@
-# simple.pyw
+# simple.py
 from pydantic import BaseModel
 from llm_clients.ollama_client import verify
 
