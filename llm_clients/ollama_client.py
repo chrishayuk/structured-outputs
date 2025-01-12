@@ -23,17 +23,8 @@ def verify(
             format=response_format.model_json_schema()
         )
 
-        # 2. Extract the raw text returned by the LLM.
-        content_str = response.message.content
-
-        # 3. Convert JSON string -> Python dict
-        content_dict = json.loads(content_str)
-
-        # 4. Construct the Pydantic model
-        parsed_model = response_format(**content_dict)
-
-        # return the model
-        return parsed_model
+        # return the parsed object
+        return response_format.model_validate_json(response.message.content)
 
     except ValidationError as ve:
         print(f"Output did not match {response_format.__name__} schema:", ve)
