@@ -1,9 +1,8 @@
 # sudoku.py
 import argparse
 from models import SudokuVerificationPlan
-from llm_clients.openai_client import verify
 from verification_output import print_verification_plan
-#from ollama_client import verify
+from system_message import system_message
 
 # user message
 # user_message = {
@@ -84,7 +83,7 @@ def main():
         from llm_clients.openai_client import verify
 
     # Call verify with the chosen model
-    plan = verify(user_message, SudokuVerificationPlan, args.model)
+    plan = verify(system_message, user_message, SudokuVerificationPlan, args.model)
 
     # Print out the plan
     print_verification_plan(plan)

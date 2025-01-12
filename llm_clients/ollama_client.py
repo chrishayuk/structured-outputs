@@ -1,11 +1,9 @@
+# llm_clients/ollama_client.py
 import json
 from pydantic import ValidationError
 from ollama import chat
 
-# system message
-from system_message import system_message
-
-def verify(user_message, response_format, model: str):
+def verify(system_message, user_message, response_format, model: str):
     """
     Verifies a user message against the SudokuVerificationPlan using Ollama.
     Takes in a 'model' argument which defaults in sudoku.py to 'phi4' unless overridden.

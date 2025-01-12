@@ -1,16 +1,13 @@
+# llm_clients/openai_client.py
 import json
-from typing import List
 from pydantic import ValidationError
 from dotenv import load_dotenv
 from openai import OpenAI
 
-# system message
-from system_message import system_message
-
 # load environment variables if needed
 load_dotenv()
 
-def verify(user_message, response_format, model: str):
+def verify(system_message, user_message, response_format, model: str):
     """
     Verifies a user message against the SudokuVerificationPlan using OpenAI.
     Takes in a 'model' argument which defaults in sudoku.py to 'gpt-4o-mini' unless overridden.
