@@ -1,9 +1,11 @@
 [project]
 name = "structured-outputs"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Python project for structured outputs and integrations with various LLM clients."
 readme = "README.md"
 requires-python = ">=3.12"
+
+# Define dependencies
 dependencies = [
     "ollama>=0.4.5",
     "openai>=1.59.6",

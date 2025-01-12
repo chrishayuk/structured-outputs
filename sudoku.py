@@ -1,7 +1,6 @@
 # sudoku.py
-import json
 from models import SudokuVerificationPlan
-from openai_client import verify
+from llm_clients.openai_client import verify
 #from ollama_client import verify
 
 # user message
@@ -15,7 +14,7 @@ from openai_client import verify
 #         "------+-------+------\n"
 #         "8 5 9 | 7 6 1 | 4 2 3\n"
 #         "4 2 6 | 8 1 3 | 7 9 1\n"
-#         "7 1 3 | 9 2 4 | 8 5 6\n"
+#         "7 1 3 | 9 2 4 | 8 5 6\n"s
 #         "------+-------+------\n"
 #         "9 6 1 | 5 3 7 | 2 8 4\n"
 #         "2 8 7 | 4 1 9 | 6 3 5\n"

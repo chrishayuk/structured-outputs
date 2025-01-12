@@ -1,33 +1,25 @@
-# openai_client
+# llm_clients/ollama_client.py
 import json
-from typing import List
 from pydantic import ValidationError
-from dotenv import load_dotenv
-from openai import OpenAI
+from ollama import chat
 
 # system message
 from system_message import system_message
 
-# load environment variables if needed
-load_dotenv()
-
 def verify(user_message, response_format):
-    # get the client
-    client = OpenAI()
-
     # setup the messages
     messages = [system_message, user_message]
 
     try:
         # perform the completion
-        response = client.beta.chat.completions.parse(
-            model="gpt-4o",
+        response = chat(
+            model="phi4",
             messages=messages,
-            response_format=response_format
+            format=response_format.model_json_schema()
         )
 
         # return a parsed message
-        return response.choices[0].message.parsed
+        return response.message.content
 
     except ValidationError as ve:
         print("Output did not match SudokuVerificationPlan schema:", ve)

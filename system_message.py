@@ -1,5 +1,4 @@
 # system_message.py
-
 system_message = {
     "role": "system",
     "content": (

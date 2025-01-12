@@ -1,3 +1,9 @@
+# src/scripts/model_json.py
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+# our imports
 from models import SudokuGrid, SudokuVerificationDetails, SudokuVerificationPlan
 
 # Sample 9×9 sudoku grid (0 represents an empty cell)

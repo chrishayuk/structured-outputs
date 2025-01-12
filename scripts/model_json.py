@@ -1,4 +1,9 @@
-# import
+# src/scripts/model_json.py
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+# our imports
 from models import SudokuGrid, SudokuVerificationDetails, SudokuVerificationPlan
 
 # create an empty verification plan
@@ -14,7 +19,7 @@ verification_plan = SudokuVerificationPlan(
 )
 
 # show the schema
-schema = verification_plan.model_json_dump()
+json = verification_plan.model_dump()
 
-print("\n=== Schema ===")
-print(schema)
+print("\n=== JSON ===")
+print(json)
