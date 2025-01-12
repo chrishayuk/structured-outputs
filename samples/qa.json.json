@@ -1,0 +1,7 @@
+{
+    "question": "Is the sky green?",
+    "user_answer": true,
+    "correct_answer": false,
+    "is_correct": false,
+    "explanation": "Typically, the sky appears blue to the human eye due to Rayleigh scattering of sunlight in Earth's atmosphere."
+  }

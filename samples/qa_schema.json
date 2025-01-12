@@ -1,0 +1,34 @@
+{
+    "properties": {
+      "question": {
+        "title": "Question",
+        "type": "string"
+      },
+      "user_answer": {
+        "title": "User Answer",
+        "type": "boolean"
+      },
+      "correct_answer": {
+        "title": "Correct Answer",
+        "type": "boolean"
+      },
+      "is_correct": {
+        "title": "Is Correct",
+        "type": "boolean"
+      },
+      "explanation": {
+        "title": "Explanation",
+        "type": "string"
+      }
+    },
+    "required": [
+      "question",
+      "user_answer",
+      "correct_answer",
+      "is_correct",
+      "explanation"
+    ],
+    "title": "YesNoVerificationPlan",
+    "type": "object"
+  }
+  
